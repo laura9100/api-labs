@@ -1,10 +1,11 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import moviesRouter from './api/movies';
-import genresRouter from './api/genres';
 import './db';
 import './seedData'
 import usersRouter from './api/users';
+import genresRouter from './api/genres';
+
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.use(express.json());
 app.use('/api/genres', genresRouter);
 app.use('/api/movies', moviesRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/genres', genresRouter);
 app.use(errHandler);
 
 app.listen(port, () => {
